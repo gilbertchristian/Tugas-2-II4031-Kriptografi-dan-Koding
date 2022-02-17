@@ -34,12 +34,12 @@ def KSA(key):
     return S
 
 
-def PRGA(plaintext, S):
+def PRGA(text, S):
     i = 0
     j = 0
     keystream = []
 
-    for idx in range(len(plaintext)):
+    for idx in range(len(text)):
         i = (i+1) % 256
         j = (j + S[i]) % 256
         swap(S, i, j)
