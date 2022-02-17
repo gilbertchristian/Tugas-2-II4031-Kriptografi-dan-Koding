@@ -45,55 +45,38 @@ def PRGA(plaintext, S):
         swap(S, i, j)
         t = (S[i] + S[j]) % 256
         u = S[t]
-        # c = u ^ int(plaintext[idx])
         keystream.append(u)
-
-    # ciphertext = ' '.join(c)
 
     return keystream
 
 
-# def convert_binary(text):
-#     result = []
-
-#     for idx in text:
-#         result.append(format(ord(idx), 'b'))
-
-#     return result
-
-def convert_binary(n):
-    return int(bin(n).replace("0b", ""))
-
-
-def encrypt(plaintext, keystream):
+def encrypt_decrypt(text, keystream):
     result = []
-    for i in range(len(plaintext)):
-        pt = convert_binary(plaintext[i])
-        ks = convert_binary(keystream[i])
-        print(pt, ks)
-        ct = pt ^ ks
+    for i in range(len(text)):
+        ct = text[i] ^ keystream[i]
         result.append(ct)
-    return result
-    # print(convert_binary(plaintext))
-    # print(convert_binary(keystream))
+    return(result)
+
+
+def convert_string(text):
+    result = []
+    for idx in text:
+        result.append(chr(idx))
+    result = ''.join(result)
+    return (result)
 
 
 plaintext = list(input("Enter your plaintext: "))
 plaintext_ascii = list(convert_ascii(plaintext))
+
 key = input("Enter your key: ")
 key_ascii = list(convert_ascii(key))
-
-print("key", key_ascii, "\n")
-
 repeated_key = repeat(key_ascii)
 
-# print("repeat", repeated_key, "\n")
-# print(repeat(key_ascii))
-
 ksa = KSA(repeated_key)
-# print(ksa, "\n")
 prga = PRGA(plaintext, ksa)
-# print(prga)
 
-encrypted_text = encrypt(plaintext_ascii, prga)
-print(encrypted_text)
+encrypted = encrypt_decrypt(plaintext_ascii, prga)
+print("Ciphertext:", convert_string(encrypted))
+decrypted = encrypt_decrypt(encrypted, prga)
+print("Decrypted ciphertext:", convert_string(decrypted))
