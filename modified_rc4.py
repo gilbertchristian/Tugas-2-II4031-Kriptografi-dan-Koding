@@ -65,18 +65,36 @@ def convert_string(text):
     result = ''.join(result)
     return (result)
 
+# plaintext = list(input("Enter your plaintext: "))
+# plaintext_ascii = list(convert_ascii(plaintext))
 
-plaintext = list(input("Enter your plaintext: "))
-plaintext_ascii = list(convert_ascii(plaintext))
+# key = input("Enter your key: ")
+# key_ascii = list(convert_ascii(key))
+# repeated_key = repeat(key_ascii)
 
-key = input("Enter your key: ")
-key_ascii = list(convert_ascii(key))
-repeated_key = repeat(key_ascii)
+# ksa = KSA(repeated_key)
+# prga = PRGA(plaintext, ksa)
 
-ksa = KSA(repeated_key)
-prga = PRGA(plaintext, ksa)
+# encrypted = encrypt_decrypt(plaintext_ascii, prga)
+# print("Ciphertext:", convert_string(encrypted))
 
-encrypted = encrypt_decrypt(plaintext_ascii, prga)
-print("Ciphertext:", convert_string(encrypted))
-decrypted = encrypt_decrypt(encrypted, prga)
-print("Decrypted ciphertext:", convert_string(decrypted))
+# decrypted = encrypt_decrypt(encrypted, prga)
+# print("Decrypted ciphertext:", convert_string(decrypted))
+
+
+def rc4_Process(plaintext, key):
+    plaintext_ascii = list(convert_ascii(plaintext))
+    key_ascii = list(convert_ascii(key))
+    repeated_key = repeat(key_ascii)
+    ksa = KSA(repeated_key)
+    prga = PRGA(plaintext, ksa)
+    encrypted = encrypt_decrypt(plaintext_ascii, prga)
+    decrypted = encrypt_decrypt(encrypted, prga)
+    return(convert_string(encrypted), convert_string(decrypted))
+
+
+def rc4_Export(plaintext, key):
+    cipher = rc4_Process(plaintext, key)
+    txt = open('ciphertext.txt', 'w')
+    cipher = txt.write(cipher[0])
+    txt.close()
