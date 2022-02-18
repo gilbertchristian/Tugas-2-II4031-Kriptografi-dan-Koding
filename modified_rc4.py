@@ -50,12 +50,17 @@ def PRGA(text, S):
     return keystream
 
 
+# def encrypt_decrypt(text, keystream):
+#     result = []
+#     for i in range(len(text)):
+#         ct = text[i] ^ keystream[i]
+#         result.append(ct)
+#     return(result)
+
 def encrypt_decrypt(text, keystream):
-    result = []
-    for i in range(len(text)):
-        ct = text[i] ^ keystream[i]
-        result.append(ct)
-    return(result)
+    for i, value in enumerate(text):
+        text[i] = value ^ keystream[i]
+    return(text)
 
 
 def convert_string(text):
@@ -65,21 +70,33 @@ def convert_string(text):
     result = ''.join(result)
     return (result)
 
+
 # plaintext = list(input("Enter your plaintext: "))
 # plaintext_ascii = list(convert_ascii(plaintext))
+
+# # f = open('image.jpg', 'rb')
+# # plaintext_ascii = bytearray(f.read())
+# # f.close()
 
 # key = input("Enter your key: ")
 # key_ascii = list(convert_ascii(key))
 # repeated_key = repeat(key_ascii)
 
 # ksa = KSA(repeated_key)
+
 # prga = PRGA(plaintext, ksa)
+
+# # prga = PRGA(plaintext_ascii, ksa)
 
 # encrypted = encrypt_decrypt(plaintext_ascii, prga)
 # print("Ciphertext:", convert_string(encrypted))
 
-# decrypted = encrypt_decrypt(encrypted, prga)
-# print("Decrypted ciphertext:", convert_string(decrypted))
+# # f = open('image.jpg', 'wb')
+# # f.write(encrypted)
+# # f.close()
+
+# # decrypted = encrypt_decrypt(encrypted, prga)
+# # print("Decrypted ciphertext:", convert_string(decrypted))
 
 
 def rc4_Process(plaintext, key):
@@ -88,7 +105,27 @@ def rc4_Process(plaintext, key):
     repeated_key = repeat(key_ascii)
     ksa = KSA(repeated_key)
     prga = PRGA(plaintext, ksa)
+    print(plaintext_ascii, prga)
     encrypted = encrypt_decrypt(plaintext_ascii, prga)
+    decrypted = encrypt_decrypt(encrypted, prga)
+    return(convert_string(encrypted), convert_string(decrypted))
+
+
+def rc4_file(plaintext, key):
+    f = open('image.jpg', 'rb')
+    plaintext_ascii = bytearray(f.read())
+    f.close()
+
+    key_ascii = list(convert_ascii(key))
+    repeated_key = repeat(key_ascii)
+    ksa = KSA(repeated_key)
+    prga = PRGA(plaintext, ksa)
+    encrypted = encrypt_decrypt(plaintext_ascii, prga)
+
+    f = open('image.jpg', 'wb')
+    f.write(encrypted)
+    f.close()
+
     decrypted = encrypt_decrypt(encrypted, prga)
     return(convert_string(encrypted), convert_string(decrypted))
 

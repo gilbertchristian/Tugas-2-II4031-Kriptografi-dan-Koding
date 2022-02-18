@@ -17,16 +17,23 @@ class Cipher(QMainWindow):
     def __init__(self):
         super(Cipher, self).__init__()
         loadUi("cipher.ui", self)
-        self.pushButton_5.clicked.connect(self.Process)
+        self.pushButton_6.clicked.connect(self.Decrypt)
+        self.pushButton_5.clicked.connect(self.Encrypt)
         self.pushButton_3.clicked.connect(self.Import)
         self.pushButton_4.clicked.connect(self.Export)
 
-    def Process(self):
+    def Encrypt(self):
+        plaintext = self.textEdit.toPlainText()
+        key = self.textEdit_2.toPlainText()
+        res = rc4_Process(plaintext, key)
+        print(res)
+        self.textBrowser.setText(res[0])
+
+    def Decrypt(self):
         plaintext = self.textEdit.toPlainText()
         key = self.textEdit_2.toPlainText()
         res = rc4_Process(plaintext, key)
 
-        self.textBrowser.setText(res[0])
         self.textBrowser_2.setText(res[1])
 
     def Import(self):
