@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>601</height>
+    <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>170</y>
+      <y>200</y>
       <width>130</width>
       <height>40</height>
      </rect>
@@ -36,7 +36,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>220</y>
+      <y>250</y>
       <width>130</width>
       <height>40</height>
      </rect>
@@ -54,7 +54,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>170</y>
+      <y>200</y>
       <width>360</width>
       <height>40</height>
      </rect>
@@ -74,7 +74,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>220</y>
+      <y>250</y>
       <width>470</width>
       <height>40</height>
      </rect>
@@ -94,7 +94,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>309</x>
-      <y>340</y>
+      <y>370</y>
       <width>391</width>
       <height>41</height>
      </rect>
@@ -114,7 +114,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>340</y>
+      <y>370</y>
       <width>201</width>
       <height>40</height>
      </rect>
@@ -128,49 +128,11 @@ p, li { white-space: pre-wrap; }
      <string>Encrypted Messages</string>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="textBrowser_2">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>440</y>
-      <width>391</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-size:16pt</string>
-    </property>
-    <property name="html">
-     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>440</y>
-      <width>201</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Decrypted Messages</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
       <x>600</x>
-      <y>170</y>
+      <y>200</y>
       <width>100</width>
       <height>40</height>
      </rect>
@@ -209,7 +171,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>600</x>
-      <y>290</y>
+      <y>320</y>
       <width>100</width>
       <height>40</height>
      </rect>
@@ -227,8 +189,8 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>290</y>
-      <width>491</width>
+      <y>320</y>
+      <width>241</width>
       <height>41</height>
      </rect>
     </property>
@@ -244,9 +206,27 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>390</y>
-      <width>601</width>
+      <x>30</x>
+      <y>30</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Back</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>320</y>
+      <width>241</width>
       <height>41</height>
      </rect>
     </property>
@@ -256,7 +236,7 @@ p, li { white-space: pre-wrap; }
      </font>
     </property>
     <property name="text">
-     <string>Decrypt</string>
+     <string>File Encrypt</string>
     </property>
    </widget>
    <widget class="QWidget" name="widget" native="true">
@@ -279,13 +259,12 @@ p, li { white-space: pre-wrap; }
    <zorder>textEdit_2</zorder>
    <zorder>textBrowser</zorder>
    <zorder>label_4</zorder>
-   <zorder>textBrowser_2</zorder>
-   <zorder>label_5</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>label_6</zorder>
    <zorder>pushButton_4</zorder>
    <zorder>pushButton_5</zorder>
    <zorder>pushButton_6</zorder>
+   <zorder>pushButton_7</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">

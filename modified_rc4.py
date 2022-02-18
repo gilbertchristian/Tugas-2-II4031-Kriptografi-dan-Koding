@@ -71,12 +71,12 @@ def convert_string(text):
     return (result)
 
 
-# plaintext = list(input("Enter your plaintext: "))
-# plaintext_ascii = list(convert_ascii(plaintext))
+# # plaintext = list(input("Enter your plaintext: "))
+# # plaintext_ascii = list(convert_ascii(plaintext))
 
-# # f = open('image.jpg', 'rb')
-# # plaintext_ascii = bytearray(f.read())
-# # f.close()
+# f = open('audio.mp3', 'rb')
+# plaintext_ascii = bytearray(f.read())
+# f.close()
 
 # key = input("Enter your key: ")
 # key_ascii = list(convert_ascii(key))
@@ -84,54 +84,57 @@ def convert_string(text):
 
 # ksa = KSA(repeated_key)
 
-# prga = PRGA(plaintext, ksa)
+# # prga = PRGA(plaintext, ksa)
 
-# # prga = PRGA(plaintext_ascii, ksa)
+# prga = PRGA(plaintext_ascii, ksa)
 
 # encrypted = encrypt_decrypt(plaintext_ascii, prga)
-# print("Ciphertext:", convert_string(encrypted))
+# # print("Ciphertext:", convert_string(encrypted))
 
-# # f = open('image.jpg', 'wb')
-# # f.write(encrypted)
-# # f.close()
+# print(encrypted)
+
+# f = open('audio.mp3', 'wb')
+# f.write(encrypted)
+# f.close()
 
 # # decrypted = encrypt_decrypt(encrypted, prga)
 # # print("Decrypted ciphertext:", convert_string(decrypted))
 
 
-def rc4_Process(plaintext, key):
-    plaintext_ascii = list(convert_ascii(plaintext))
+def rc4_Process(text, key):
+    plaintext_ascii = list(convert_ascii(text))
     key_ascii = list(convert_ascii(key))
     repeated_key = repeat(key_ascii)
     ksa = KSA(repeated_key)
-    prga = PRGA(plaintext, ksa)
-    print(plaintext_ascii, prga)
+    prga = PRGA(text, ksa)
+    # print(plaintext_ascii, prga)
     encrypted = encrypt_decrypt(plaintext_ascii, prga)
-    decrypted = encrypt_decrypt(encrypted, prga)
-    return(convert_string(encrypted), convert_string(decrypted))
+    # decrypted = encrypt_decrypt(encrypted, prga)
+    # return(convert_string(encrypted), convert_string(decrypted))
+    return(convert_string(encrypted))
 
 
-def rc4_file(plaintext, key):
-    f = open('image.jpg', 'rb')
-    plaintext_ascii = bytearray(f.read())
+def rc4_file(file, key):
+    f = open(file, 'rb')
+    text = bytearray(f.read())
     f.close()
 
     key_ascii = list(convert_ascii(key))
     repeated_key = repeat(key_ascii)
     ksa = KSA(repeated_key)
-    prga = PRGA(plaintext, ksa)
-    encrypted = encrypt_decrypt(plaintext_ascii, prga)
+    prga = PRGA(text, ksa)
+    encrypted = encrypt_decrypt(text, prga)
 
     f = open('image.jpg', 'wb')
     f.write(encrypted)
     f.close()
 
-    decrypted = encrypt_decrypt(encrypted, prga)
-    return(convert_string(encrypted), convert_string(decrypted))
+    # decrypted = encrypt_decrypt(encrypted, prga)
+    return("Check your files!")
 
 
-def rc4_Export(plaintext, key):
-    cipher = rc4_Process(plaintext, key)
+def rc4_Export(text, key):
+    cipher = rc4_Process(text, key)
     txt = open('ciphertext.txt', 'w')
     cipher = txt.write(cipher[0])
     txt.close()
