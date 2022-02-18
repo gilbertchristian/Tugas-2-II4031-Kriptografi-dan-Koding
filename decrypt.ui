@@ -125,7 +125,7 @@ p, li { white-space: pre-wrap; }
      </font>
     </property>
     <property name="text">
-     <string>Encrypted Messages</string>
+     <string>Decrypted Messages</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
@@ -200,7 +200,7 @@ p, li { white-space: pre-wrap; }
      </font>
     </property>
     <property name="text">
-     <string>Encrypt</string>
+     <string>Decrypt</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
